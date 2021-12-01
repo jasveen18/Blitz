@@ -1,0 +1,90 @@
+<%- include("../partials/map-header")%>
+
+<div class="container">
+	
+	<%if(!hotel){%>
+		<h1>
+			 Sorry! We were unable to find the hotel
+	</h1>
+	<%}else{%>
+	<div class="row">
+		<h1 style="text-align:center">
+			Edit <%=hotel.name%>
+		</h1>
+		<div style="width:30%; margin: 25px auto;">
+			<form action="/hotels/<%=hotel._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input class="form-control" id="name" type="text" name="name" value="<%=hotel.name%>">
+				</div>
+				<div class="form-group">
+					<label for="price">Price</label>
+					<input class="form-control" type="number" id="price" name="price" value="<%=hotel.price%>" min="0.01" step="0.01">
+				</div>
+				<div class="form-group">
+	          		<label for="queryAdv">Where is located?</label>
+					<input type="text" id="queryAdv" name="place" class="form-control" value="<%=hotel.place%>" />
+					<input type="hidden" id="location" name="location" value="<%=hotel.location%>" >
+					<div>
+						<input type="button" class="search-adv btn btn-sm btn-primary btn-block" value="Add Coordinates" />
+					</div>
+					<div class="form-group" id="shoW">
+						 
+					</div>
+				<div class="form-group">
+				<div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+				<div class="form-group">
+					<label for="description">Description</label>
+					<input class="form-control" id="description" type="text" name="description" value="<%=hotel.description%>">
+				</div>
+				<button class="btn btn-lg btn-primary btn-block">
+					Submit!
+				</button>
+			</form>
+			<a href="/hotels">Go back</a>
+		</div>
+	</div>
+	<%}%>
+</div>
+	
+		<script>
+
+function geokoduj(e, elm) {  /* Voláno při odeslání */
+    JAK.Events.cancelDef(e); /* Zamezit odeslání formuláře */
+    var query = JAK.gel("query").value;
+    new SMap.Geocoder(query, odpoved);
+}
+			
+
+function odpoved(geocoder) { /* Odpověď */
+    if (!geocoder.getResults()[0].results.length) {
+        alert("Please introduce a valid location");
+        return;
+    }
+    
+    var vysledky = geocoder.getResults()[0].results;
+    var data = [];
+    while (vysledky.length) { /* Zobrazit všechny výsledky hledání */
+        var item = vysledky.shift()
+        data.push( item.coords);
+    }
+   Geo=data[0];
+	document.getElementById("location").value=Geo;
+	document.getElementById("shoW").textContent=Geo;
+	
+}
+			
+
+// pokrocile pouziti
+document.querySelector("input.search-adv").addEventListener("click", function(e) {
+	var geocode = new SMap.Geocoder(document.querySelector("#queryAdv").value, odpoved)
+	
+
+});
+			
+
+		</script>
+<%-include("../partials/footer")%>

@@ -1,0 +1,142 @@
+body {
+    background-color: #000;
+  }
+  
+  *{
+      font-family:roboto;
+  }
+  
+#landing-header {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    margin-top: 25vh;
+    margin-left:  auto;
+    margin-right: auto;
+}
+  
+  #landing-header h1 {
+    color: rgb(81, 212, 255);
+    font-size: 80px;
+    font-weight: 600;
+  }
+  
+  .slideshow { 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: auto;
+    padding: auto;
+  }
+  
+  .slideshow li { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite; 
+  }
+  
+  .slideshow li:nth-child(1) { 
+    background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fe591947383269.58788b71ceb63.png);
+    opacity: 0.7; 
+  }
+  .slideshow li:nth-child(2) { 
+    background-image: url(https://i.ytimg.com/vi/qYtcsg_NIWY/maxresdefault.jpg);
+    animation-delay: 7s; 
+  }
+  .slideshow li:nth-child(3) { 
+    background-image: url(https://tripindia.co.in//uploads/Exotic-Ajanta-Ellora-Tour11.jpg);
+    animation-delay: 14s; 
+  }
+  .slideshow li:nth-child(4) { 
+    background-image: url(https://qph.fs.quoracdn.net/main-qimg-ba3dc096d6a264afac141cbd2d153b13);
+    animation-delay: 21s; 
+  }
+  .slideshow li:nth-child(5) { 
+    background-image: url(https://i.ytimg.com/vi/8IGqj60Iork/maxresdefault.jpg);
+    animation-delay: 28s; 
+  }
+  .slideshow li:nth-child(6) { 
+    background-image: url(https://media.istockphoto.com/photos/dosa-with-chutney-and-sambaar-picture-id153422907?k=20&m=153422907&s=612x612&w=0&h=sf8avTmKQfvTlYoHZHVMGzdfXnUhyb17ENJU-zhhs5k=);
+    animation-delay: 35s; 
+  }
+  
+  .cookie-container{
+      position: fixed;
+      bottom:-100%;
+      left:0;
+      right:0;
+      background:darkblue;
+      color:white;
+      transition:500ms;
+              z-index:1;
+  
+  }
+  .shown{
+      bottom:0;
+  
+  
+  
+  }
+  
+  .cookie-container a {
+      color:lightgreen;
+  
+  
+  }
+  .cookie-button{
+      background-color:lightblue;
+      color:black;
+      margin-bottom:10px;
+  
+  }
+  
+  .Hotel{
+      color:rgb(81, 212, 255);
+  }
+  .Finder{
+      color:rgb(81, 212, 255);
+  }
+  
+  
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }
+  
+  .no-cssanimations .slideshow li {
+      opacity: 1;
+  }
+
+@media screen and (min-width: 200px) {
+    
+    .form-inline .form-control{
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+    }
+}
+  

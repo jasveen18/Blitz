@@ -1,0 +1,56 @@
+<%- include("partials/header")%>
+
+    <div class="container-login100">
+	    <div class="wrap-login100">
+		    <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action='/register' method='POST'>
+			    <span class="login100-form-title">
+				    Register
+			    </span>
+
+			    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Username">
+				    <input class="input100" type="text" name="username" placeholder="Username" required>
+				    <span class="focus-input100"></span>
+			    </div>
+
+			    <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Full Name">
+				    <input class="input100" type="text" name="name" placeholder="Full name" required>
+				    <span class="focus-input100"></span>
+			    </div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Email">
+				    <input class="input100" type="email" name="email" placeholder="Email" required>
+				    <span class="focus-input100"></span>
+			    </div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Password">
+				    <input class="input100" type="password" name="password" placeholder="Password" required>
+				    <span class="focus-input100"></span>
+			    </div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Confirm Password">
+				    <input class="input100" type="password" name="confirm_password" placeholder="Confirm Password" required>
+				    <span class="focus-input100"></span>
+			    </div>
+
+			    <div class="container-login100-form-btn">
+				    <button class="login100-form-btn" type="submit" value="register">
+					    Register
+				    </button>
+			    </div>
+
+			    <div class="flex-col-c p-t-170 p-b-40">
+				    <span class="txt1 p-b-9">
+					    Already have an account?
+				    </span>
+
+				    <a href="/login" class="txt3">
+					    Login now
+				    </a>
+			    </div>
+
+		    </form>
+	    </div>
+    </div>
+
+
+<%- include("partials/footer")%>

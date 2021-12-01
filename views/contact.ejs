@@ -1,0 +1,41 @@
+<%- include("partials/header")%>
+
+	<div class="container-login100">
+		<div class="wrap-login100">
+			<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action='/contact' method='POST'>
+				<span class="login100-form-title">
+					Contact
+				</span>
+
+				<div class="flex-col-c p-b-40">
+					<span class="txt1 p-b-9">
+						If you have any concerns regarding BLITZ or like aur website, contact us by submitting the form given below.
+					</span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Name">
+					<input class="input100" type="text" name="name" placeholder="Your Name" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Email">
+					<input class="input100" type="email" name="email" placeholder=" Your Email" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Email">
+					<input class="input100" type="text" name="message" cols="30" rows="10" placeholder="Your message" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-login100-form-btn" style='margin-bottom: 20px;'>
+					<button class="login100-form-btn" type="submit" value="login">
+						Submit
+					</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+<%- include("partials/footer")%>

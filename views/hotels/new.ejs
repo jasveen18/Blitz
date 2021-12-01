@@ -1,0 +1,52 @@
+<%- include("../partials/header")%>
+
+    <div class="container-login100">
+	    <div class="wrap-login100">
+		    <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action='/hotels' method='POST' enctype="multipart/form-data">
+			    <span class="login100-form-title">
+				    Add a New Stall
+			    </span>
+
+			    <div class="wrap-input100 validate-input m-b-16" data-validate="Food Stall Name">
+				    <input class="input100" type="text" name="name" placeholder="Food Stall Name">
+				    <span class="focus-input100"></span>
+			    </div>
+
+			    <div class="wrap-input100 validate-input m-b-16" data-validate = "City Name">
+				    <input class="input100" type="text" name="place" placeholder="City Name">
+				    <span class="focus-input100"></span>
+			    </div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Address">
+				    <input class="input100" type="text" name="address" placeholder="Address">
+				    <span class="focus-input100"></span>
+			    </div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Image of Food Stall">
+				    <input class="input100" type="file" name="image" placeholder="Image of Food Stall" accept="image/*" style='padding-left: 30px; padding-top: 15px;'>
+				    <span class="focus-input100"></span>
+			    </div>
+
+				<div class="wrap-input100 validate-input m-b-16" data-validate = "Description">
+				    <input class="input100" type="text" name="description" placeholder="Description">
+				    <span class="focus-input100"></span>
+			    </div>
+
+			    <div class="container-login100-form-btn">
+				    <button class="login100-form-btn" type="submit" value="submit">
+					    Submit
+				    </button>
+			    </div>
+
+			    <div class="flex-col-c p-t-170 p-b-40">
+				    <a href="/hotels" class="txt3">
+					    Go Back
+				    </a>
+			    </div>
+
+		    </form>
+	    </div>
+    </div>
+
+
+<%- include("../partials/footer")%>

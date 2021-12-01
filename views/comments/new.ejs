@@ -1,0 +1,35 @@
+<%-include("../partials/header")%>
+
+
+<div class="container-login100">
+	<div class="wrap-login100">
+		<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action='/hotels/<%=hotel._id%>/comments' method='POST'>
+
+			<span class="login100-form-title">
+				Add New Comment to <%=hotel.name%>
+			</span>
+
+			<div class="wrap-input100 validate-input m-b-16">
+				<input class="input100" type="text" name="comment[text]" placeholder="Your Comment">
+				<span class="focus-input100"></span>
+			</div>
+
+			<div class="text-right p-t-13 p-b-23">
+				<a href="/hotels" class="txt2">
+					Go Back
+				</a>
+			</div>
+
+			<div class="container-login100-form-btn">
+				<button class="login100-form-btn" type="submit" value="login" style='margin-bottom: 20px;'>
+					Submit
+				</button>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+
+
+<%-include("../partials/footer")%>

@@ -1,0 +1,52 @@
+.logo  {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-self: center;
+    font-weight: 600px;
+}
+
+ .nav-main ul {
+     height: 40vh;
+     width: 200px;
+     position: fixed;
+     top: -1px;
+     right: 10px;
+     background-color: rgb(14, 13, 13);
+     border-radius: 10px;
+     visibility: hidden;
+     box-shadow: none;
+}
+
+ .nav-main ul li {
+     position: relative;
+     left: 30px;
+     top: 10px;
+
+ }
+ .nav-main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:6vh;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+
+}
+.toggle button {
+    position: absolute;
+    right: 8px;
+    z-index: 1;
+    top: 7px;
+    background: transparent;
+    border: none;
+}
+

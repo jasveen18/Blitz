@@ -1,0 +1,71 @@
+<%- include("../partials/header")%>
+
+
+<div class="container">
+	
+	<%if(!hotel){%>
+		<h1>
+			 Sorry! We were unable to find the hotel
+	</h1>
+	<%}else{%>
+	<div class="row" id="row-show">
+		<div class="col-md-3">
+
+			<h2 class="lead" style='margin-top: 20px;'>Information:</h2>	
+			<div class="list-group">
+				<li class="list-group-item">Random information about the Food Stall</li>
+				<li class="list-group-item">More Random information about the Food Stall</li>
+				<li class="list-group-item">Lastest details about the Food Stall</li>
+			</div>
+
+			<div id="m" style="height:400px">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7116.564310868184!2d75.82633957684668!3d26.894539050971254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db6eb4ec12795%3A0xe407f954ccdaef5!2sRaja%20Park%2C%20Jaipur%2C%20Rajasthan%20302007!5e0!3m2!1sen!2sin!4v1638284105359!5m2!1sen!2sin" 
+				        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			</div>
+
+			<h2 class="lead" style='margin-top: 80px;'>Address:</h2>	
+			<div class="list-group" style='margin-top: 5px;'>
+				<li class="list-group-item"><%=hotel.address%></li>
+			</div>
+
+		</div>
+
+
+		<div class="col-md-9" style='margin-top: 20px;'>
+			<div class="thumbnail">
+				<img class="img-responsive" src="<%= hotel.image %>">
+				<div class="caption-full">
+					<p style='font-weight: 600;font-size: 25px'><%=hotel.name%></p>
+					<p style='margin-top: 10px;font-size: 18px;'><%= hotel.description %></p>
+					<h4 style='margin-top: 10px;'><em>Submitted by <%= hotel.author.username %></em></h4>
+				</div>
+			</div>
+			<div class="well">
+				<div class="text-right">
+						<a  class="btn btn-success" href="/hotels/<%=hotel._id%>/comments/new">Add new comment</a>
+				</div>
+				<hr>
+				<% hotel.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+						<h2><%= comment.author.username %></h2>
+						<span class="pull-right">
+						
+						</span>	
+						<p style='font-size: 20px;'>
+						<%= comment.text %>
+						</p>
+					</div>
+				</div>
+
+				<% }) %>
+			</div>
+		</div>
+	</div>
+	
+	<%}%>
+</div>
+
+
+	
+					<%-include("../partials/footer")%>
