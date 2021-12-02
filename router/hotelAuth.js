@@ -133,64 +133,64 @@ router.get('/hotels/new', authenticate, (req,res) => {
 
 
 //edit hotels
-router.get('/hotels/:id/edit', authenticate, async(req,res) => {
-    try{
-        const foundHotel = await Hotels.findById(req.params.id);
+// router.get('/hotels/:id/edit', authenticate, async(req,res) => {
+//     try{
+//         const foundHotel = await Hotels.findById(req.params.id);
 
-        if(!foundHotel){
-            req.flash("error", "Hotel not found");
-            res.redirect('/hotels');
-        }
-        else
-        {
-            res.render('hotels/edit', {hotel:foundHotel});
-        }
-    }catch(err){
-        console.log('Error in edit hotel', err);
-    }
-});
+//         if(!foundHotel){
+//             req.flash("error", "Hotel not found");
+//             res.redirect('/hotels');
+//         }
+//         else
+//         {
+//             res.render('hotels/edit', {hotel:foundHotel});
+//         }
+//     }catch(err){
+//         console.log('Error in edit hotel', err);
+//     }
+// });
 
 
 
 //update your hotel
-router.put('/hotels/:id', authenticate, upload.single('image'), async(req,res) => {
+// router.put('/hotels/:id', authenticate, upload.single('image'), async(req,res) => {
 
-    try{
+//     try{
 
-        const myHotel = await Hotels.findById(req.params.id);
+//         const myHotel = await Hotels.findById(req.params.id);
         
-        if(myHotel){
+//         if(myHotel){
 
-            if(req.file){
-                cloudinary.uploader.destroy(myHotel.imageId);
-                const newResult = cloudinary.uploader.upload(req.file.path);
-                if(!newResult){
-                    return res.redirect('back');
-                }
-                else
-                {
-                    req.body.image = newResult.secure_url;
-				    req.body.imageId = newResult.public_id;
-				    myHotel.image= req.body.image;
-				    myHotel.imageId= req.body.imageId;
-				    myHotel.save();
-                }
-            }
+//             if(req.file){
+//                 cloudinary.uploader.destroy(myHotel.imageId);
+//                 const newResult = cloudinary.uploader.upload(req.file.path);
+//                 if(!newResult){
+//                     return res.redirect('back');
+//                 }
+//                 else
+//                 {
+//                     req.body.image = newResult.secure_url;
+// 				    req.body.imageId = newResult.public_id;
+// 				    myHotel.image= req.body.image;
+// 				    myHotel.imageId= req.body.imageId;
+// 				    myHotel.save();
+//                 }
+//             }
 
-            myHotel.name = req.body.name;
-            myHotel.description = req.body.description;
-			myHotel.place=req.body.place;
-			myHotel.address= req.body.address;
-            myHotel.save();
-            req.flash("success","Successfully Updated!");
-            res.redirect("/hotels/" + hotel._id);       
-        }
+//             myHotel.name = req.body.name;
+//             myHotel.description = req.body.description;
+// 			myHotel.place=req.body.place;
+// 			myHotel.address= req.body.address;
+//             myHotel.save();
+//             req.flash("success","Successfully Updated!");
+//             res.redirect("/hotels/" + hotel._id);       
+//         }
 
-    }catch(err){
-        console.log('Error in update hotel', err);
-    }
+//     }catch(err){
+//         console.log('Error in update hotel', err);
+//     }
 
-});
+// });
 
 
 
