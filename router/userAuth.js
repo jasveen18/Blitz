@@ -37,16 +37,13 @@ router.post('/register', async(req,res) => {
         const usernameExist = await User.findOne({username:username});
 
         if(emailExist){
-            req.flash("error", 'email already exist');
-            res.redirect("/register");
+            return res.status(422).json({error:'email already exist'});
         }
         else if(usernameExist){
-            req.flash("error", 'username already exist');
-            res.redirect("/register");
+            return res.status(422).json({error:'username already exist'});
         }
         else if(password != confirm_password){
-            req.flash("error", 'password is not matching');
-            res.redirect("/register");
+            return res.status(422).json({error:'password is not matching'});
         }
         else if(password.length<6){
             req.flash("error", 'password length should be minimum of 6');
