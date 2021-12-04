@@ -46,8 +46,7 @@ router.post('/register', async(req,res) => {
             return res.status(422).json({error:'password is not matching'});
         }
         else if(password.length<6){
-            req.flash("error", 'password length should be minimum of 6');
-            res.redirect("/register");
+            return res.status(422).json({error:'password length should be minimum of 6'});
         }
         else
         {
